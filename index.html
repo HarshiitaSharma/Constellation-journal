@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constellation Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+</head>
+<body>
+
+<div class="atlas">
+
+  <header class="brand-row">
+    <h1>Constellation Journal</h1>
+    <p class="tagline">write a little each day, and watch the month become a sky</p>
+  </header>
+
+  <section class="chart-panel">
+    <div class="chart-head">
+      <div class="month-nav">
+        <button id="prevMonth" aria-label="Previous month">&larr;</button>
+        <span id="monthLabel">—</span>
+        <button id="nextMonth" aria-label="Next month">&rarr;</button>
+      </div>
+      <div class="chart-stats">
+        <span id="starCount">0</span> stars this month
+      </div>
+    </div>
+
+    <div class="chart-name" id="constellationName"></div>
+
+    <div class="sky-wrap">
+      <svg id="skyChart" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+
+    <p class="chart-hint">Tap a star to reopen that day's entry.</p>
+  </section>
+
+  <section class="entry-panel">
+    <div class="entry-head">
+      <h2 id="entryHeading">New entry</h2>
+      <input type="date" id="entryDate">
+    </div>
+
+    <div class="mood-row" id="moodRow" role="radiogroup" aria-label="Mood for this entry">
+      <button class="mood-swatch" data-mood="radiant" style="--swatch:#F0C05A" title="Radiant"></button>
+      <button class="mood-swatch" data-mood="warm" style="--swatch:#E08A6B" title="Warm"></button>
+      <button class="mood-swatch" data-mood="calm" style="--swatch:#7FA8D9" title="Calm"></button>
+      <button class="mood-swatch" data-mood="stormy" style="--swatch:#9C8ED9" title="Stormy"></button>
+      <button class="mood-swatch" data-mood="quiet" style="--swatch:#C9CEDA" title="Quiet"></button>
+    </div>
+
+    <textarea id="entryText" rows="5" placeholder="What happened today?"></textarea>
+
+    <div class="entry-actions">
+      <button class="btn-ink" id="saveEntryBtn">Save star</button>
+      <button class="btn-outline" id="deleteEntryBtn" hidden>Remove star</button>
+      <button class="btn-outline" id="newEntryBtn" hidden>New entry</button>
+    </div>
+  </section>
+
+  <p class="footnote">Everything is written to this browser's local storage — nothing leaves your device.</p>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
