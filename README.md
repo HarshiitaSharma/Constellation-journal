@@ -22,6 +22,11 @@ No build step, no dependencies, no backend — just `index.html`,
 - Click any star to reopen and edit that day's entry; delete it if you
   want the star to fade
 - Month navigation to look back at (or write into) past months
+- **Rename** a month's constellation, or keep the generated name
+- **Streak** counter and a gentle nudge after a week with no stars
+- **Backup**: export and import your journal as JSON (imports are validated)
+- **Keepsake**: save the month's sky as an SVG
+- Keyboard accessible stars, screen-reader labels, installable offline PWA
 
 ## How star positions work
 
@@ -62,15 +67,15 @@ git push -u origin main
 
 ```
 constellation-journal/
-├── index.html    # markup
-├── styles.css    # celestial-atlas theme
-├── script.js     # star layout, entry storage, constellation naming
-└── README.md
+├── index.html  styles.css  script.js
+├── manifest.webmanifest  sw.js  pwa.js  icon.svg    # installable offline app
+├── .github/workflows/pages.yml                      # auto-deploy to GitHub Pages
+└── README.md  CHANGELOG.md  LICENSE
 ```
 
 ## Ideas to extend it
 
 - A "year sky" view zoomed out, with each month as its own cluster
-- Export a month's constellation as an SVG or PNG keepsake
-- Word count streaks, or a gentle reminder if a week has no stars
-- Let users rename their constellation instead of only generating one
+- Search across entries
+- Optional PIN lock for the journal
+- Word-count goals
