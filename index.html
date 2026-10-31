@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1B2340">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
 </head>
 <body>
@@ -27,17 +29,18 @@
         <button id="nextMonth" aria-label="Next month">&rarr;</button>
       </div>
       <div class="chart-stats">
-        <span id="starCount">0</span> stars this month
+        <span id="starCount">0</span> stars this month · <span id="streak">0</span>-day streak
       </div>
     </div>
 
-    <div class="chart-name" id="constellationName"></div>
+    <div class="chart-name"><span id="constellationName"></span> <button class="rename-btn" id="renameBtn" hidden>rename</button></div>
 
     <div class="sky-wrap">
       <svg id="skyChart" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid meet"></svg>
     </div>
 
-    <p class="chart-hint">Tap a star to reopen that day's entry.</p>
+    <p class="chart-hint">Tap a star (or tab to it and press Enter) to reopen that day's entry.</p>
+    <p class="nudge" id="nudge" hidden>No stars for a week. A single line is enough to light one.</p>
   </section>
 
   <section class="entry-panel">
@@ -61,6 +64,15 @@
       <button class="btn-outline" id="deleteEntryBtn" hidden>Remove star</button>
       <button class="btn-outline" id="newEntryBtn" hidden>New entry</button>
     </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+
+    <div class="backup-row">
+      <button class="btn-outline" id="exportBtn">Export backup</button>
+      <label class="btn-outline file-btn">Import backup
+        <input type="file" id="importFile" accept="application/json" hidden>
+      </label>
+      <button class="btn-outline" id="keepsakeBtn">Save month as SVG</button>
+    </div>
   </section>
 
   <p class="footnote">Everything is written to this browser's local storage — nothing leaves your device.</p>
@@ -68,5 +80,6 @@
 </div>
 
 <script src="script.js"></script>
+<script src="pwa.js"></script>
 </body>
 </html>
