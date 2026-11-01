@@ -1,0 +1,10 @@
+{
+  "name": "Constellation Journal",
+  "short_name": "Constellation",
+  "description": "A daily journal that turns each month into a star chart",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#12162B",
+  "theme_color": "#1B2340",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
